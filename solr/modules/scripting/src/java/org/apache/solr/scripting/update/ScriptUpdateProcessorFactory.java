@@ -308,19 +308,20 @@ public class ScriptUpdateProcessorFactory extends UpdateRequestProcessorFactory
       scriptEngines.add(new EngineInfo((Invocable) engine, scriptFile));
       try (Reader scriptSrc = scriptFile.openReader(resourceLoader)) {
         try {
-          try {
-            AccessController.doPrivileged(
-                new PrivilegedExceptionAction<Void>() {
-                  @Override
-                  public Void run() throws ScriptException {
-                    engine.eval(scriptSrc);
-                    return null;
-                  }
-                },
-                SCRIPT_SANDBOX);
-          } catch (PrivilegedActionException e) {
-            throw (ScriptException) e.getException();
-          }
+//          try {
+//            AccessController.doPrivileged(
+//                new PrivilegedExceptionAction<Void>() {
+//                  @Override
+//                  public Void run() throws ScriptException {
+//                    engine.eval(scriptSrc);
+//                    return null;
+//                  }
+//                },
+//                SCRIPT_SANDBOX);
+//          } catch (PrivilegedActionException e) {
+//            throw (ScriptException) e.getException();
+//          }
+          engine.eval(scriptSrc);
         } catch (ScriptException e) {
           throw new SolrException(
               SolrException.ErrorCode.SERVER_ERROR,
@@ -429,14 +430,15 @@ public class ScriptUpdateProcessorFactory extends UpdateRequestProcessorFactory
      * non-null, and can be cast to a java Boolean.
      */
     private boolean invokeFunction(String name, Object... cmd) {
-      return AccessController.doPrivileged(
-          new PrivilegedAction<Boolean>() {
-            @Override
-            public Boolean run() {
-              return invokeFunctionUnsafe(name, cmd);
-            }
-          },
-          SCRIPT_SANDBOX);
+      return invokeFunctionUnsafe(name, cmd);
+//      return AccessController.doPrivileged(
+//          new PrivilegedAction<Boolean>() {
+//            @Override
+//            public Boolean run() {
+//              return invokeFunctionUnsafe(name, cmd);
+//            }
+//          },
+//          SCRIPT_SANDBOX);
     }
 
     private boolean invokeFunctionUnsafe(String name, Object... cmd) {
@@ -513,6 +515,6 @@ public class ScriptUpdateProcessorFactory extends UpdateRequestProcessorFactory
   }
 
   // sandbox for script code: zero permissions
-  private static final AccessControlContext SCRIPT_SANDBOX =
-      new AccessControlContext(new ProtectionDomain[] {new ProtectionDomain(null, null)});
+//  private static final AccessControlContext SCRIPT_SANDBOX =
+//      new AccessControlContext(new ProtectionDomain[] {new ProtectionDomain(null, null)});
 }

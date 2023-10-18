@@ -27,8 +27,7 @@ public class SolrNamedThreadFactory implements ThreadFactory {
   private final String prefix;
 
   public SolrNamedThreadFactory(String namePrefix) {
-    SecurityManager s = System.getSecurityManager();
-    group = (s != null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();
+    group = Thread.currentThread().getThreadGroup();
     prefix = namePrefix + "-" + poolNumber.getAndIncrement() + "-thread-";
   }
 

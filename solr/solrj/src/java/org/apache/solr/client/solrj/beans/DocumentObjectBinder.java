@@ -150,12 +150,13 @@ public class DocumentObjectBinder {
     boolean childFieldFound = false;
     for (AccessibleObject member : members) {
       if (member.isAnnotationPresent(Field.class)) {
-        AccessController.doPrivileged(
-            (PrivilegedAction<Void>)
-                () -> {
-                  member.setAccessible(true);
-                  return null;
-                });
+//        AccessController.doPrivileged(
+//            (PrivilegedAction<Void>)
+//                () -> {
+//                  member.setAccessible(true);
+//                  return null;
+//                });
+        member.setAccessible(true);
         DocField df = new DocField(member);
         if (df.child != null) {
           if (childFieldFound)

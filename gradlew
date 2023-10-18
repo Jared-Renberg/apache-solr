@@ -164,7 +164,7 @@ fi
 CLASSPATH=$GRADLE_WRAPPER_JAR
 
 # START OF SOLR CUSTOMIZATION
-# Generate gradle.properties if they don't exist
+# Generate template.gradle.properties if they don't exist
 if [ ! -e "$APP_HOME/gradle.properties" ]; then
     "$JAVACMD" $JAVA_OPTS --source 11 "$APP_HOME/buildSrc/src/main/java/org/apache/lucene/gradle/GradlePropertiesGenerator.java" "$APP_HOME/gradle/template.gradle.properties" "$APP_HOME/gradle.properties"
     GENERATOR_STATUS=$?

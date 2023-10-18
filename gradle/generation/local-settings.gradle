@@ -17,9 +17,9 @@
 
 
 // This script tries to guess sensible defaults for gradle parallelism
-// and local machine's resources and save them under 'gradle.properties'.
+// and local machine's resources and save them under 'template.gradle.properties'.
 
-def hasDefaults = rootProject.file("gradle.properties").exists()
+def hasDefaults = rootProject.file("template.gradle.properties").exists()
 
 configure(rootProject) {
   // Add a task verifying that gradle process has access to JVM internals.
@@ -40,7 +40,7 @@ configure(rootProject) {
       if (!internalsExported) {
         throw new GradleException(
             "Certain gradle tasks and plugins require access to jdk.compiler" +
-                " internals, your gradle.properties might have just been generated or could be" +
+                " internals, your template.gradle.properties might have just been generated or could be" +
                 " out of sync (see gradle/template.gradle.properties)")
       }
     }
