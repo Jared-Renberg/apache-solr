@@ -20,7 +20,7 @@ package org.apache.solr.security;
 import java.security.Principal;
 import java.util.Enumeration;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.solr.common.params.SolrParams;
 import org.apache.solr.servlet.ServletUtils;
 

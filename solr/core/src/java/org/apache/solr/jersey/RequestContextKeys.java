@@ -18,8 +18,8 @@
 package org.apache.solr.jersey;
 
 import com.codahale.metrics.Timer;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import javax.ws.rs.container.ContainerRequestContext;
 import org.apache.solr.client.api.model.SolrJerseyResponse;
 import org.apache.solr.common.params.SolrParams;

@@ -43,6 +43,8 @@ dependencies {
   implementation 'io.dropwizard.metrics:metrics-core'
   implementation 'org.apache.httpcomponents:httpclient'
   implementation 'org.apache.httpcomponents:httpcore'
+  implementation 'jakarta.servlet:jakarta.servlet-api'
+
 
   implementation 'org.eclipse.jetty:jetty-client'
 

@@ -17,10 +17,10 @@
 package org.apache.solr.servlet;
 
 import java.io.IOException;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /** A Simple redirection servlet to help us deprecate old UI elements */
 public class RedirectServlet extends BaseSolrServlet {

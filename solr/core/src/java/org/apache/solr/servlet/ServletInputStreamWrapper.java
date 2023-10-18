@@ -17,8 +17,8 @@
 package org.apache.solr.servlet;
 
 import java.io.IOException;
-import javax.servlet.ReadListener;
-import javax.servlet.ServletInputStream;
+import jakarta.servlet.ReadListener;
+import jakarta.servlet.ServletInputStream;
 import org.apache.solr.common.util.SuppressForbidden;
 
 /**
